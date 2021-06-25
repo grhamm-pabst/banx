@@ -1,8 +1,7 @@
 defmodule Banx.TransactionTest do
   use Banx.DataCase, async: true
 
-  alias Banx.{Account, Transaction}
-  alias Banx.Accounts.Create
+  alias Banx.Transaction
 
   alias Ecto.Changeset
 

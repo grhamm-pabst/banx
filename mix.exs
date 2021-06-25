@@ -46,7 +46,8 @@ defmodule Banx.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:absinthe, "~> 1.5.0"},
       {:absinthe_plug, "~> 1.5"},
-      {:crudry, "~> 2.4.0"}
+      {:crudry, "~> 2.4.0"},
+      {:ex_machina, "~> 2.7.0"}
     ]
   end
 
