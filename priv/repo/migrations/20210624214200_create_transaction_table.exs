@@ -7,6 +7,8 @@ defmodule Banx.Repo.Migrations.CreateTransactionTable do
       add :address_id, references(:accounts)
       add :amount, :decimal
       add :when, :date
+
+      timestamps()
     end
   end
 end

@@ -4,6 +4,8 @@ defmodule Banx.Repo.Migrations.CreateAccountsTable do
   def change do
     create table(:accounts) do
       add :current_balance, :decimal
+
+      timestamps()
     end
   end
 end
