@@ -19,5 +19,15 @@ defmodule Banx.Accounts.CreateTest do
                 updated_at: _up_date
               }} = response
     end
+
+    test "when there are invalid params, returns an error" do
+      params = %{"current_balance" => "-1"}
+
+      {:error, changeset} = Create.call(params)
+
+      expected_response = {:error, %{current_balance: ["must be greater than or equal to 0"]}}
+
+      assert {:error, errors_on(changeset)} == expected_response
+    end
   end
 end
