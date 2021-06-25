@@ -8,6 +8,8 @@ defmodule Banx.Account do
 
   schema "accounts" do
     field :current_balance, :decimal
+
+    timestamps()
   end
 
   def changeset(account \\ %__MODULE__{}, account_params) do

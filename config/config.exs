@@ -10,7 +10,7 @@ use Mix.Config
 config :banx,
   ecto_repos: [Banx.Repo]
 
-config :banx, Back.Repo,
+config :banx, Banx.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
