@@ -26,7 +26,21 @@ defmodule Banx.Transaction do
     |> cast(transaction_params, @fields)
     |> validate_required(@required_fields)
     |> validate_number(:amount, greater_than_or_equal_to: 0)
+    |> validate_destination()
     |> put_date()
+  end
+
+  defp validate_destination(
+         %Changeset{
+           changes: %{sender_id: sender_id, address_id: address_id}
+         } = changeset
+       ) do
+    if sender_id != address_id,
+      do: changeset,
+      else:
+        add_error(changeset, :sender_id, "Sender should not be the same as the Address",
+          validation: :destination
+        )
   end
 
   defp put_date(%Changeset{valid?: true} = changeset) do
