@@ -4,9 +4,8 @@ defmodule Banx.Accounts.Create do
   alias Ecto.Changeset
 
   def call(params) do
-    with %Changeset{valid?: true} = account <- Account.changeset(params) do
-      Repo.insert(account)
-    else
+    case Account.changeset(params) do
+      %Changeset{valid?: true} = account -> Repo.insert(account)
       changeset -> {:error, changeset}
     end
   end
