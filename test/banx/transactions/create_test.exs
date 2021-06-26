@@ -48,5 +48,15 @@ defmodule Banx.Transactions.CreateTest do
 
       assert expected_response == response
     end
+
+    test "when there are invalid params, returns an error" do
+      params = build(:transaction_params, %{"amount" => "-1"})
+
+      {:error, response} = Create.call(params)
+
+      expected_response = %{amount: ["must be greater than or equal to 0"]}
+
+      assert expected_response == errors_on(response)
+    end
   end
 end
