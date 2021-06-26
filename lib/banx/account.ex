@@ -2,12 +2,19 @@ defmodule Banx.Account do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Banx.Transaction
+
   @primary_key {:id, :binary_id, autogenerate: true}
 
   @foreign_key_type :binary_id
 
   schema "accounts" do
     field :current_balance, :decimal
+
+    has_many :sended, Transaction, foreign_key: :sender_id
+    has_many :received, Transaction, foreign_key: :address_id
+
+    field :transactions, {:array, :map}, virtual: true
 
     timestamps()
   end

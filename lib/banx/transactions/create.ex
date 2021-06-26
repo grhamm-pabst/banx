@@ -14,6 +14,9 @@ defmodule Banx.Transactions.Create do
 
       nil ->
         {:error, "One of the accounts doesn't exists"}
+
+      %Changeset{valid?: false} ->
+        {:error, "Invalid Params"}
     end
   end
 

@@ -10,6 +10,20 @@ defmodule Banx.Factory do
     }
   end
 
+  def sender_factory do
+    %Account{
+      id: "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5c",
+      current_balance: Decimal.new("10.10")
+    }
+  end
+
+  def address_factory do
+    %Account{
+      id: "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5d",
+      current_balance: Decimal.new("10.10")
+    }
+  end
+
   def account_params_factory do
     %{
       "current_balance" => "10.10"
@@ -21,7 +35,8 @@ defmodule Banx.Factory do
       id: "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5c",
       amount: Decimal.new("1.00"),
       sender_id: "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5c",
-      address_id: "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5d"
+      address_id: "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5d",
+      when: ~N[2021-06-26 19:17:06]
     }
   end
 
