@@ -27,7 +27,7 @@ defmodule Banx.TransactionTest do
 
       response = Transaction.changeset(params)
 
-      expected_response = %{amount: ["must be greater than or equal to 0"]}
+      expected_response = %{amount: ["must be greater than 0"]}
 
       assert errors_on(response) == expected_response
     end

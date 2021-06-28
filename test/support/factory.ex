@@ -42,9 +42,9 @@ defmodule Banx.Factory do
 
   def transaction_params_factory do
     %{
-      "amount" => "1.00",
-      "sender_id" => "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5c",
-      "address_id" => "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5d"
+      amount: "1.00",
+      sender_id: "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5c",
+      address_id: "9c0ae6cc-a7d6-4367-b72c-5491f0fdae5d"
     }
   end
 end

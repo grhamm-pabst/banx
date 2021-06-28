@@ -25,7 +25,7 @@ defmodule Banx.Transaction do
     %__MODULE__{}
     |> cast(transaction_params, @fields)
     |> validate_required(@required_fields)
-    |> validate_number(:amount, greater_than_or_equal_to: 0)
+    |> validate_number(:amount, greater_than: 0)
     |> validate_destination()
     |> put_date()
   end
