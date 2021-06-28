@@ -3,7 +3,7 @@ defmodule Banx.Transactions.Create do
 
   alias Ecto.{Changeset, Multi}
 
-  def call(%{"sender_id" => sender_id, "amount" => amount, "address_id" => address_id} = params) do
+  def call(%{sender_id: sender_id, amount: amount, address_id: address_id} = params) do
     with %Changeset{valid?: true} = changeset <- Transaction.changeset(params),
          %{sender: sender, address: address} <-
            verify_disponility(sender_id, address_id, amount) do

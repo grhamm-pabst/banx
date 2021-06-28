@@ -9,6 +9,13 @@ defmodule BanxWeb.Router do
     pipe_through :api
   end
 
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphql", Absinthe.Plug, schema: BanxWeb.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: BanxWeb.Schema
+  end
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
